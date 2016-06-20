@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: e62388a9c157d6745a795a24d9eb5389
+timeCreated: 1464247254
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ambientLight1
+    100002: //RootNode
+    100004: boy
+    100006: deformation_rig
+    100008: head
+    100010: headEnd
+    100012: hips
+    100014: L_ankle
+    100016: L_bicep
+    100018: L_clavicle
+    100020: L_elbow
+    100022: L_forearm
+    100024: L_hip
+    100026: L_index_01
+    100028: L_index_02
+    100030: L_indexEnd
+    100032: L_indexOrient
+    100034: L_knee_01
+    100036: L_knee_02
+    100038: L_middle_01
+    100040: L_middle_02
+    100042: L_middleEnd
+    100044: L_middleOrient
+    100046: L_pinky_01
+    100048: L_pinky_02
+    100050: L_pinkyEnd
+    100052: L_pinkyOrient
+    100054: L_shoulder
+    100056: L_shoulder_parentConstraint2
+    100058: L_thumb_01
+    100060: L_thumb_02
+    100062: L_thumbEnd
+    100064: L_thumbOrient
+    100066: L_toeBall
+    100068: L_toeEnd
+    100070: L_wrist
+    100072: neck01
+    100074: pointLight1
+    100076: R_ankle
+    100078: R_bicep
+    100080: R_clavicle
+    100082: R_elbow
+    100084: R_forearm
+    100086: R_hip
+    100088: R_index_01
+    100090: R_index_02
+    100092: R_indexEnd
+    100094: R_indexOrient
+    100096: R_knee_01
+    100098: R_knee_02
+    100100: R_middle_01
+    100102: R_middle_02
+    100104: R_middleEnd
+    100106: R_middleOrient
+    100108: R_pinky_01
+    100110: R_pinky_02
+    100112: R_pinkyEnd
+    100114: R_pinkyOrient
+    100116: R_shoulder
+    100118: R_thumb_01
+    100120: R_thumb_02
+    100122: R_thumbEnd
+    100124: R_thumbOrient
+    100126: R_toeBall
+    100128: R_toeEnd
+    100130: R_wrist
+    100132: root
+    100134: spine01
+    100136: spine02
+    400000: ambientLight1
+    400002: //RootNode
+    400004: boy
+    400006: deformation_rig
+    400008: head
+    400010: headEnd
+    400012: hips
+    400014: L_ankle
+    400016: L_bicep
+    400018: L_clavicle
+    400020: L_elbow
+    400022: L_forearm
+    400024: L_hip
+    400026: L_index_01
+    400028: L_index_02
+    400030: L_indexEnd
+    400032: L_indexOrient
+    400034: L_knee_01
+    400036: L_knee_02
+    400038: L_middle_01
+    400040: L_middle_02
+    400042: L_middleEnd
+    400044: L_middleOrient
+    400046: L_pinky_01
+    400048: L_pinky_02
+    400050: L_pinkyEnd
+    400052: L_pinkyOrient
+    400054: L_shoulder
+    400056: L_shoulder_parentConstraint2
+    400058: L_thumb_01
+    400060: L_thumb_02
+    400062: L_thumbEnd
+    400064: L_thumbOrient
+    400066: L_toeBall
+    400068: L_toeEnd
+    400070: L_wrist
+    400072: neck01
+    400074: pointLight1
+    400076: R_ankle
+    400078: R_bicep
+    400080: R_clavicle
+    400082: R_elbow
+    400084: R_forearm
+    400086: R_hip
+    400088: R_index_01
+    400090: R_index_02
+    400092: R_indexEnd
+    400094: R_indexOrient
+    400096: R_knee_01
+    400098: R_knee_02
+    400100: R_middle_01
+    400102: R_middle_02
+    400104: R_middleEnd
+    400106: R_middleOrient
+    400108: R_pinky_01
+    400110: R_pinky_02
+    400112: R_pinkyEnd
+    400114: R_pinkyOrient
+    400116: R_shoulder
+    400118: R_thumb_01
+    400120: R_thumb_02
+    400122: R_thumbEnd
+    400124: R_thumbOrient
+    400126: R_toeBall
+    400128: R_toeEnd
+    400130: R_wrist
+    400132: root
+    400134: spine01
+    400136: spine02
+    4300000: boy
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: boy
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
