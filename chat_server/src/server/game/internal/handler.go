@@ -49,11 +49,11 @@ func handleAddUser(args []interface{}) {
 	}
 
 	a.WriteMsg(&msg.S2C_Login{
-		NumUsers: len(users),
+		NumUsers: int32(len(users)),
 	})
 	broadcastMsg(&msg.S2C_Joined{
 		UserName: m.UserName,
-		NumUsers: len(users),
+		NumUsers: int32(len(users)),
 	}, a)
 }
 

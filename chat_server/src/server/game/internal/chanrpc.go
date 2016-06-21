@@ -27,7 +27,7 @@ func rpcCloseAgent(args []interface{}) {
 	}
 
 	broadcastMsg(&msg.S2C_Left{
-		NumUsers: len(users),
+		NumUsers: int32(len(users)),
 		UserName: userName,
 	}, a)
 }

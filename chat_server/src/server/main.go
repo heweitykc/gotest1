@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/name5566/leaf"
-	"github.com/name5566/leaf/go"
 	lconf "github.com/name5566/leaf/conf"
 	"server/conf"
 	"server/game"
