@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package msg;
+
+message C2S_AddUser {
+	string UserName = 1;
+}
+
+message C2S_Message {
+	string Message  = 1;
+}
+
+message C2S_Action {
+	// typing
+	// stop typing
+	string Op  = 1;
+}
+
+message S2C_Login {
+	int32 NumUsers  = 1;
+}
+
+message S2C_Joined {
+	int32 NumUsers  = 1;
+	string UserName  = 2;
+}
+
+message S2C_Left {
+	int32 NumUsers  = 1;
+	string UserName  = 2;
+}
+
+message S2C_Typing {
+	string UserName  = 1;
+}
+
+message S2C_StopTyping {
+	string UserName  = 1;
+}
+
+message S2C_Message {
+	string UserName  = 1;
+	string Message   = 2;
+}
