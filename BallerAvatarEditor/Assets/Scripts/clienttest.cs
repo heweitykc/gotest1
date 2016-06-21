@@ -6,6 +6,8 @@ using System.Text;
 using System.Collections;
 using System.Net.Sockets;
 using SimpleJson;
+using Msg;
+using Google.Protobuf;
 
 public class clienttest : MonoBehaviour {
     public Text pingmsg;
@@ -21,7 +23,7 @@ public class clienttest : MonoBehaviour {
 
     void Start () {
         client = new TcpClient(AddressFamily.InterNetwork);
-        client.Connect("107.180.74.209", 3563);
+        client.Connect("127.0.0.1", 3563);
         //client.Connect("192.168.124.157", 3563);
         Application.targetFrameRate = 30;
     }	
@@ -47,7 +49,29 @@ public class clienttest : MonoBehaviour {
 
         Parse();
     }
-     
+
+    public void SendLogin()
+    {
+        C2S_AddUser addu = new C2S_AddUser();
+        addu.UserName = "callee";
+        Send(addu);
+    }
+
+    public void Send(IMessage msg)
+    {
+        var msgbts = msg.ToByteArray();        
+        int len = msgbts.Length;
+        var sendbts = new byte[len + 4];    //protobuf: len + message id + message bin
+        int id = 0;
+        sendbts[0] = (byte)((len+2) >> 8);
+        sendbts[1] = (byte)(len+2);
+        sendbts[2] = (byte)(id >> 8);
+        sendbts[3] = (byte)id;
+        Array.Copy(msgbts, 0, sendbts, 4, len);
+
+        client.Client.Send(sendbts);
+    }
+
     public void SendPing(string msg)
     {
         string msgtxt = loginmsg.Replace("[tm]", msg);
@@ -73,13 +97,25 @@ public class clienttest : MonoBehaviour {
         }
 
         startpos += 2;
+        Debug.Log("get data len=" + len);
+
+        int msgid = ((recvBuffer[startpos]) << 8) + recvBuffer[startpos + 1];
+        S2C_Login s2cmsg = new S2C_Login();
+        byte[] protodata = new byte[len-2];
+        for (int i = 0; i < protodata.Length; i++) {
+            protodata[i] = recvBuffer[4+i];
+        }
+        s2cmsg.MergeFrom(protodata);
+        Debug.Log("nums:"+s2cmsg.NumUsers);
+
+        /*
         string jsonstr = System.Text.ASCIIEncoding.Default.GetString(recvBuffer, startpos, len);        
         var replaydata = SimpleJson.SimpleJson.DeserializeObject<JsonObject>(jsonstr);
         string tm = (replaydata["Hello"] as JsonObject)["Tm"].ToString();
         GetComponent<RoleController>().UpdateControl(tm);
-        /*
+        
         int t = int.Parse(tm);
-        float diff = ((Time.realtimeSinceStartup * 1000f) - t) * 0.5f;        
+        float diff = ((Time.realtimeSinceStartup * 1000f) - t) * 0.5f;
         ring.Add((int)diff);
 
         pingmsg.text = GetAverage(ring.GetList()).ToString() + "ms";
