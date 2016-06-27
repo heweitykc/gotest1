@@ -5,8 +5,9 @@ import (
         "net/http"
         "log"
         "net"
-      //  "time"
+        "time"
 	    "model"
+		"fmt"
 )
  
 type Arith int
@@ -16,10 +17,24 @@ func (t *Arith) Multiply(args *model.Args, reply *([]string)) error {
         *reply = append(*reply, "test")
         return nil
 }
+
+var c chan int
+
+func ready(w string, sec int){
+	time.Sleep(time.Duration(sec) * time.Second)
+	fmt.Println(w, "is ready!")
+	c <- 1
+}
  
 func main() {
-        arith := new(Arith)
- 
+		c = make(chan int)
+		go ready("Tee", 2)
+		go ready("Coffee", 1)
+		fmt.Println("I'm waiting.")
+		<- c
+		<- c
+
+        arith := new(Arith) 
         rpc.Register(arith)
         rpc.HandleHTTP()
          
