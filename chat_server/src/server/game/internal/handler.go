@@ -1,20 +1,15 @@
 package internal
 
 import (
-	"net/rpc"
 	"fmt"
 	"github.com/name5566/leaf/gate"
 	"reflect"
 	"server/msg"
 	"time"
-	"log"
+	"common"
 )
 
 const maxMessages = 50
-
-type Args struct {
-        A, B int
-}
 
 var (
 	messages [maxMessages]struct {
@@ -22,7 +17,6 @@ var (
 		message  string
 	}
 	messageIndex int
-	rpcClient *rpc.Client
 )
 
 var loc = time.FixedZone("", 8*3600)
@@ -32,11 +26,6 @@ func handleMsg(m interface{}, h interface{}) {
 }
 
 func init() {
-	rpcclient, rcperr := rpc.DialHTTP("tcp", "127.0.0.1" + ":1234")
-	if rcperr != nil {
-			log.Fatal("dialing:", rcperr)
-	}
-	rpcClient = rpcclient
 	handleMsg(&msg.C2S_AddUser{}, handleAddUser)
 	handleMsg(&msg.C2S_Message{}, handleMessage)
 	handleMsg(&msg.C2S_Action{}, handleAction)
@@ -68,13 +57,8 @@ func handleAddUser(args []interface{}) {
 		NumUsers: int32(len(users)),
 	}, a)
 	
-	rpcargs := &Args{7,8}
-	reply := make([]string, 10)
-	err := rpcClient.Call("Arith.Multiply", rpcargs, &reply)
-	if err != nil {
-			log.Fatal("arith error:", err)
-	}
-    log.Println(reply)
+	rpcargs := &common.Args{7,8}
+	common.Multiply(rpcargs)
 }
 
 func handleMessage(args []interface{}) {
