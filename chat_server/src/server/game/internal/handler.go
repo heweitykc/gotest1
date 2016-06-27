@@ -7,6 +7,7 @@ import (
 	"server/msg"
 	"time"
 	"common"
+	"model"
 )
 
 const maxMessages = 50
@@ -57,7 +58,9 @@ func handleAddUser(args []interface{}) {
 		NumUsers: int32(len(users)),
 	}, a)
 	
-	rpcargs := &common.Args{7,8}
+	//rpcargs := &common.Args{7,8}
+	rpcargs := new(model.Args)
+	rpcargs.Init(7,8)
 	common.Multiply(rpcargs)
 }
 

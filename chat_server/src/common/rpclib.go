@@ -3,6 +3,7 @@ package common
 import (
 	"net/rpc"
 	"log"
+	"model"
 )
 
 var (
@@ -10,14 +11,14 @@ var (
 )
 
 func init() {
-	rpcclient, rcperr := rpc.DialHTTP("tcp", "127.0.0.1" + ":1234")
+	rpcclient, rcperr := rpc.DialHTTP("tcp", "127.0.0.1" + ":3456")
 		if rcperr != nil {
 			log.Fatal("dialing:", rcperr)
 	}
 	rpcClient = rpcclient
 }
 
-func Multiply(rpcargs *Args){
+func Multiply(rpcargs *model.Args){
 	reply := make([]string, 10)
 	err := rpcClient.Call("Arith.Multiply", rpcargs, &reply)
 	if err != nil {

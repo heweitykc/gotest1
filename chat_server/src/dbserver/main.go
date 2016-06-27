@@ -6,16 +6,12 @@ import (
         "log"
         "net"
       //  "time"
+	    "model"
 )
- 
- 
-type Args struct {
-        A, B int
-}
  
 type Arith int
  
-func (t *Arith) Multiply(args *Args, reply *([]string)) error {
+func (t *Arith) Multiply(args *model.Args, reply *([]string)) error {
 		print("Multiply called!!!")
         *reply = append(*reply, "test")
         return nil
@@ -27,7 +23,7 @@ func main() {
         rpc.Register(arith)
         rpc.HandleHTTP()
          
-        l, e := net.Listen("tcp", ":1234")
+        l, e := net.Listen("tcp", ":3456")
         if e != nil {
                 log.Fatal("listen error:", e)
         }
